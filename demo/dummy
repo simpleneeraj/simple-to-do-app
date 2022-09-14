@@ -1,0 +1,25 @@
+// var a = "typeOfFirst"; // Re initilize
+// var a = 100;
+// var a = true;
+// a = false;
+
+// //
+// let b = "typeOfFirst";
+// b = 100;
+
+// //
+// const c = "typeOfFirst";
+
+// c = "Hello";
+
+// // Greeting
+
+// function greeting_10() {
+//   return "Mad";
+// }
+
+// // Arrow Function
+// const greeting_1 = () => {
+//   return "Hello";
+// };
+// const greeting_2 = () => "Hello";

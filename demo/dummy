@@ -23,3 +23,40 @@
 //   return "Hello";
 // };
 // const greeting_2 = () => "Hello";
+
+
+
+
+// map() --> ES6 Javascript
+
+// numbers --> object
+// for (let i = 0; i < numbers.length; i++) {
+//   console.log(numbers[i]);
+// }
+
+// numbers.map((data, index) => {
+//   console.log(data);
+// });
+
+// console.log(typeof Home);
+
+
+
+[
+    {
+        "tabName": "All Notes",
+        "value": "all notes"
+    },
+    {
+        "tabName": "Favorites",
+        "value": "favorites"
+    },
+    {
+        "tabName": "Completed",
+        "value": "completed"
+    },
+    {
+        "tabName": "In Completed",
+        "value": "in completed"
+    }
+]

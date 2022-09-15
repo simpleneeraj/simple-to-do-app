@@ -4,12 +4,34 @@ import type { NextPage } from "next";
 import React from "react";
 import css from "styles/app.module.scss";
 
+import { useRouter } from "next/router";
+
 const Home: NextPage = () => {
-  const [activeTab, setActiveTab] = React.useState("all notes");
+  // Get      // Set
+  const [activeTab, setActiveTab] = React.useState<string>("Favorites");
 
   const onSelectTab = React.useCallback((value: string) => {
     setActiveTab(value);
   }, []);
+
+  // get
+  // set
+
+  const tabsArray = [
+    {
+      tabName: "All Notes",
+    },
+    {
+      tabName: "Favorites",
+    },
+    {
+      tabName: "Completed",
+    },
+    {
+      tabName: "In Completed",
+    },
+  ];
+
   return (
     <React.Fragment>
       <div className={css["main"]}>
@@ -21,18 +43,17 @@ const Home: NextPage = () => {
               Notes
             </label>
             <div className={css["controls"]}>
-              {TabsArray.map(({ tabName, value }, index) => {
+              {tabsArray.map(({ tabName }, index) => {
+                console.log({ isEqual: tabName === activeTab });
                 return (
-                  <button
-                    className={activeTab === value ? css["active-button"] : ""}
+                  <TabButton
                     key={index}
-                    onClick={() => onSelectTab(value)}
-                  >
-                    <i>
-                      <TodoIcon height={16} width={16} />
-                    </i>
-                    {tabName}
-                  </button>
+                    buttonText={tabName}
+                    isButtonActive={tabName === activeTab}
+                    //  activeTab --> All Notes
+                    // tabName --> All Notes
+                    onClickTab={() => onSelectTab(tabName)}
+                  />
                 );
               })}
             </div>
@@ -50,10 +71,11 @@ const Home: NextPage = () => {
             <div>
               <h2>{activeTab}</h2>
             </div>
-
             <div className={css["notes-grid"]}>
               <div className={css["note"]}>Note 1</div>
               <div className={css["note"]}>Note 2</div>
+              <div className={css["note"]}>Note 3</div>
+              <div className={css["note"]}>Note 4</div>
             </div>
           </div>
         </div>
@@ -64,23 +86,62 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const TabsArray = [
-  {
+interface TabButtonProps {
+  buttonText: string;
+  buttonIcon?: string;
+  isButtonActive: boolean;
+  onClickTab: () => void;
+}
+
+const TabButton = ({
+  buttonText,
+  isButtonActive,
+  onClickTab,
+}: TabButtonProps) => {
+  return (
+    <button
+      // className={isButtonActive ? css["active-button"] : ""}
+      className={isButtonActive ? css["active-button"] : ""}
+      onClick={onClickTab}
+    >
+      <i>
+        {/* {buttonIcon} */}
+        <TodoIcon />
+      </i>
+      {buttonText}
+    </button>
+  );
+};
+
+//
+
+// const x='Hello'
+
+/**
+
+index 0
+
+{
     tabName: "All Notes",
-    get value() {
-      return this.tabName.toLowerCase();
-    },
-  },
-  {
-    tabName: "Favorites",
-    get value() {
-      return this.tabName.toLowerCase();
-    },
-  },
-  {
-    tabName: "Completed",
-    get value() {
-      return this.tabName.toLowerCase();
-    },
-  },
-];
+    value: "all notes",
+},
+
+index 1
+
+
+ */
+
+// Ternary Operator
+// condition ==True ? Execute : Not Execute
+
+/**
+
+
+if(condition===true){
+  Execute
+}else{
+  Not Execute
+}
+
+
+ */

@@ -1,6 +1,8 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Layout from "../layout";
+import "styles/globals.scss";
+import "styles/variable.scss";
+
+import Layout from "layout";
 
 function SimpleNeerajApp({ Component, pageProps }: AppProps) {
   return (

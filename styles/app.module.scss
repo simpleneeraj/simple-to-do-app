@@ -1,0 +1,87 @@
+@mixin label {
+  font-weight: 500;
+  padding: 0.8rem 0.4rem;
+  color: var(--secondry-color);
+}
+
+.main {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background: #f2f2f3;
+}
+.container {
+  background: #ffffff;
+  width: 768px;
+  min-height: 500px;
+  border-radius: 6px;
+  //   padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  //   gap: 10px;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.large-label {
+  @include label();
+  font-size: 1.4rem;
+}
+.medium-label {
+  @include label();
+  font-size: 0.9rem;
+}
+.small-label {
+  @include label();
+  font-size: 0.8rem;
+}
+
+.controls {
+  display: grid;
+  gap: 0.4rem;
+
+  button {
+    padding: 0.8rem;
+    border-radius: 6px;
+    gap: 0.2rem;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: 500;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+  }
+  .active-button {
+    background: var(--secondry-background);
+  }
+}
+
+.notes-container {
+  padding: 10px;
+  border-left: 1px solid var(--border-color);
+  color: var(--secondry-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.notes-grid {
+  background: var(--secondry-background);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
+  gap: 10px;
+}
+
+.note {
+  background: #fff;
+  min-height: 150px;
+  background: #fff;
+  min-height: 150px;
+  border-radius: 10px;
+  padding: 10px;
+}
